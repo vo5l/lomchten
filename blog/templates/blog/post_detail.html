@@ -1,0 +1,18 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    {{ post.title }}  - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h4 class="mb-3 text-center">
+        {{ post.title }}
+    </h4>
+    <div class="card">
+        <div class="embed-responsive embed-responsive-1by1">
+            <embed src="conf/media/docs/{{ post.filename }}" type="application/pdf"/>
+        </div>
+    </div>
+    
+
+{% endblock %}

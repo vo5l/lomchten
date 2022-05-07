@@ -1,0 +1,18 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    Удалить секцию - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+  <form action="{{ section.get_delete_url }}" method="post" >
+    {% csrf_token %}
+
+    <h4> Удалить <b>"{{ section.title|title }}"</b> ?</h4>
+    <a href="{{ section.get_absolute_url }}">Нет</a>
+    <button type="submit" name="button" class="btn btn-danger">Удалить</button>
+  </form>
+
+{% endblock %}

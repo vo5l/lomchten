@@ -1,0 +1,16 @@
+{% extends 'blog/base_blog.html' %}
+
+
+{% block title %}
+    {{ section.title }}  - {{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+    <h4 class="mb-3">Документы из секции "{{ section.title|title }}": </h4>
+
+    {%  for post in section.posts.all %}
+      {% include 'blog/includes/post_card_template.html' %}
+    {% endfor %}
+
+{% endblock %}

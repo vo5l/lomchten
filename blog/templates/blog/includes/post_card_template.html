@@ -1,0 +1,22 @@
+<div class="card mb-4">
+  <h0 class="card-header text-muted">
+    Секция:
+    {% for section in post.sections.all %}
+          <a class="text-info" href="{{ section.get_absolute_url}}">{{ section.title }}</a>
+    {% endfor %}
+    </h0>
+  <div class="card-body">
+
+
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.author }}</p>
+
+        <a href="{{ post.get_absolute_url }}" class="btn btn-info my-2 my-sm-0t">Открыть</a>
+        <a href="media/docs/{{ post.filename }}" class="btn btn-outline-info my-2 my-sm-0t">Скачать</a>
+
+
+  </div>
+  <div class="card-footer text-muted">Похожий документ:
+    <a class="text-info" href="doc/{{ post.similardoc_filename }}">{{ post.similardoc_title|truncatewords:6 }}</a>
+  </div>
+</div>
